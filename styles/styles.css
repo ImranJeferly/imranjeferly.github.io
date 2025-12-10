@@ -120,6 +120,34 @@ nav {
     color: white;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 11;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 .btn-secondary {
     padding: 10px 20px;
     border-radius: 10px;
@@ -582,4 +610,95 @@ footer {
 
 .blog-content em {
     font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    nav{
+        width: 90%;
+        margin: 20px 2%;
+    }
+    
+    .hero-con{
+        margin-top: 100px;
+        width:80%;
+        margin-left: 10%;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .hero-text{
+        width: 100%;
+    }
+
+    .hero-image{
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-con{
+        flex-direction: column;
+    }   
+
+    form{
+        width: 100%;
+    }
+
+    .contact-image{
+        width: 100%;
+    }
+
+    h1{
+        font-size: 42px;
+    }
+
+    h2{
+        font-size: 32px;
+    }
+
+    h3{
+        font-size: 24px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 100px;
+        left: -100%;
+        width: 80%;
+        max-width: 400px;
+        background-color: rgba(14, 14, 14, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 30px;
+        margin: 0;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255);
+        gap: 20px;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    nav .btn {
+        display: none;
+    }
 }
